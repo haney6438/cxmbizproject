@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "cxmbizproject-3d8e2"
-  }
+    "default": "cxmbiz"
+  },
+  "targets": {},
+  "etags": {}
 }
