@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Main from "./pages/Main";
-import Sub1 from "./pages/Sub1";
-import Sub2 from "./pages/Sub2";
+import Sample from "./pages/Sample";
+import Design from "./pages/Design";
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
     <Nav/>
     <Routes>
       <Route path='/' element={<Main />} />
-      <Route path='Sub1' element={<Sub1 />} />
-      <Route path='Sub2' element={<Sub2 />} />
+      <Route path='sample/:id' element={<Sample />} />
+      <Route path='design' element={<Design />} />
     </Routes>
     </BrowserRouter>
 
