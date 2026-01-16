@@ -37,28 +37,41 @@
   }
 }
 body {
+  background-image: url(../src/img/background2.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+body.main {
   background-image: url(../src/img/background1.png);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
   background-attachment: fixed;
 }
-.parents {
+
+.container {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 20px;
   margin: 0 auto;
 }
-.grid {
-  display: flex;
-  flex-wrap: wrap;      /* 줄바꿈 허용 */
-  gap: 20px;            /* 이미지 간 간격 */
-  justify-content: center;
+.item {
+
 }
 
-.grid img {
+.list {
+  display: flex;
+  flex-wrap: wrap;      /* 줄바꿈 허용 */
+  gap: 20px; 
+  justify-content: left;
+  padding: 50px 50px 0 50px;
+  width: 100%;
+}
+
+.list img {
   width: calc((100% - 20px) / 2); /* 한 줄에 2개 */
   cursor: pointer;
   height: auto;

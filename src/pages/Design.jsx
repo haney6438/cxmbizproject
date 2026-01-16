@@ -24,7 +24,7 @@ export default function Design() {
   return (
     <>
     <BackBar/>
-      <div className="parents">
+      <div className="container">
         <h1>직접 만들기</h1>
 
         <div

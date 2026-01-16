@@ -23,17 +23,17 @@ export default function Sample() {
   return (
     <>
     <BackBar/>
-      <div className="parents">
+      <div className="container">
         <h1>샘플 제공</h1>
-
-        <img src={sample.img} alt={sample.name} />
+        <div className='item'>
+        <img src={sample.sam} alt={sample.name} />
 
         <div>
           <button onClick={download}>도안 다운받기</button>
 
           <a
             ref={aRef}
-            href={sample.img}
+            href={sample.sam}
             download={`${sample.name}.png`}
             style={{ display: 'none' }}
           >
@@ -41,6 +41,7 @@ export default function Sample() {
           </a>
 
           <Link to="/design">직접 그리기</Link>
+        </div>
         </div>
       </div>
     </>
