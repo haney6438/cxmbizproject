@@ -1,19 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 
+import '../App.css';
 import { samples } from '../components/ImgSample';
+import BackBar from '../components/BackBar';
 
 function Main() {
   const navigate = useNavigate();
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
+    <BackBar/>
+      <div className="parents">
         <h1>홈 화면입니다.</h1>
         <div className="grid">
           {samples.map((sample) => (

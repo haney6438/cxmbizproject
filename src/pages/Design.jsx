@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+import '../App.css';
+import BackBar from '../components/BackBar';
+
 export default function Design() {
   const COLS = 18;
   const ROWS = 14;
@@ -20,14 +23,8 @@ export default function Design() {
 
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
+    <BackBar/>
+      <div className="parents">
         <h1>직접 만들기</h1>
 
         <div

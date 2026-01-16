@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background-image: url(../src/img/background1.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.parents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;      /* 줄바꿈 허용 */
+  gap: 20px;            /* 이미지 간 간격 */
+  justify-content: center;
+}
+
+.grid img {
+  width: calc((100% - 20px) / 2); /* 한 줄에 2개 */
+  cursor: pointer;
+  height: auto;
+}

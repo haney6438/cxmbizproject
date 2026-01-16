@@ -1,6 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
 import { useRef } from 'react';
+
+import '../App.css';
 import { samples } from '../components/ImgSample';
+import BackBar from '../components/BackBar';
 
 export default function Sample() {
   const { id } = useParams();
@@ -19,14 +22,8 @@ export default function Sample() {
 
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
+    <BackBar/>
+      <div className="parents">
         <h1>샘플 제공</h1>
 
         <img src={sample.img} alt={sample.name} />
