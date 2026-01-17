@@ -1,78 +1,93 @@
-.App {
-  text-align: center;
-}
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+#root {
+  width: 100vw;
+  min-height: calc(var(--vh) * 100);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center; 
+  font-family: "Pretendard Variable", Pretendard;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 body {
+  margin: 0;
   background-image: url(../src/img/background2.png);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
   background-attachment: fixed;
 }
+
 body.main {
   background-image: url(../src/img/background1.png);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  background-attachment: fixed;
 }
+
 
 .container {
+  width: 100%;
+  max-width: 430px;
+
+  min-height: calc(var(--vh) * 100);
+
   display: flex;
-  align-items: center;
   flex-direction: column;
-  padding: 20px;
-  margin: 0 auto;
-}
-.item {
-
+  align-items: center;
+  padding-bottom: 100px;
 }
 
+.content {
+  flex: 1;
+  width: 100%;
+  padding: 40px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content img {
+  width: calc((100% - 20px));
+  height: auto;
+  padding-bottom: 60px;
+}
+
+/* --- Main css --- */
 .list {
   display: flex;
-  flex-wrap: wrap;      /* 줄바꿈 허용 */
-  gap: 20px; 
-  justify-content: left;
-  padding: 50px 50px 0 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+
   width: 100%;
+  padding: 40px 20px 100px 20px;
+
+  box-sizing: border-box;
 }
 
 .list img {
-  width: calc((100% - 20px) / 2); /* 한 줄에 2개 */
-  cursor: pointer;
+  width: calc((100% - 20px) / 2);
   height: auto;
+  cursor: pointer;
+}
+
+/* --- Sample css --- */
+.btnsection{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.section{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 60px;
+}
+.fillsection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  background-color: white;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }

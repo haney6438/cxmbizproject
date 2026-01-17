@@ -13,7 +13,7 @@ export default function BackBar() {
         style={{
             backgroundColor:'black',
             width: '100vw',
-            height: 40,
+            height: '6vh',
             alignContent:'center',
         }}
       >

@@ -1,4 +1,4 @@
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import '../App.css';
@@ -6,19 +6,19 @@ import { samples } from '../components/ImgSample';
 import BackBar from '../components/BackBar';
 
 function Main() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // 배경화면 개별지정
   useEffect(() => {
-    document.body.classList.add("main");
+    document.body.classList.add('main');
 
     return () => {
-      document.body.classList.remove("main");
+      document.body.classList.remove('main');
     };
   }, []);
 
   return (
     <>
-    <BackBar/>
       <div className="container">
+        <BackBar />
         <h1>Do as you like</h1>
         <div className="list">
           {samples.map((sample) => (
