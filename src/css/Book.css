@@ -1,0 +1,38 @@
+.book {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 300px; /* modal 내부 폭 */
+  margin: 0 auto;
+}
+.book-wrapper {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+
+  overflow-x: hidden;   /* ⭐⭐⭐ 가로 스크롤 원인 차단 */
+  position: relative;
+}
+
+
+.page {
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 1px solid #ddd;
+}
+.page img{  /*300*400 기준*/
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+.cover {
+  background: #222;
+  color: white;
+  font-weight: bold;
+}

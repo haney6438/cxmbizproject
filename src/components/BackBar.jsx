@@ -17,7 +17,7 @@ export default function BackBar() {
             alignContent:'center',
         }}
       >
-    <IoIosArrowBack size={24} color='white' style={{marginLeft:10}} onClick={onClickBtn}></ IoIosArrowBack>
+    <IoIosArrowBack size={24} color='white' style={{marginLeft:14}} onClick={onClickBtn}></ IoIosArrowBack>
     </div>
     );
 }

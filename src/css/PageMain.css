@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;   /* ⭐ 중앙 정렬 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  box-sizing: border-box; /* ⭐ 중요 */
+}
+
+
+.list {
+  width: 100%;
+  padding: 40px 20px 100px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-sizing: border-box; /* ⭐ 필수 */
+}
+
+.list img {
+  width: calc((100% - 20px) / 2);
+  height: auto;
+  cursor: pointer;
+  box-sizing: border-box;
+}

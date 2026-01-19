@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import '../App.css';
+import '../css/PageMain.css';
 import { samples } from '../components/ImgSample';
 import BackBar from '../components/BackBar';
 
@@ -19,8 +19,8 @@ function Main() {
     <>
       <div className="container">
         <BackBar />
-        <h1>Do as you like</h1>
         <div className="list">
+        <h1>Do as you like</h1>
           {samples.map((sample) => (
             <img
               key={sample.id}
