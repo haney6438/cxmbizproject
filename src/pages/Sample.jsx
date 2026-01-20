@@ -54,7 +54,8 @@ export default function Sample() {
             >
               download
             </a>
-            <button onClick={() => navigate('/design')}>직접 그리기</button>
+             
+            <button onClick={() => navigate(`/design/${sample.id}`)}>직접 그리기</button>
           </div>
 
           <div className="starsection">

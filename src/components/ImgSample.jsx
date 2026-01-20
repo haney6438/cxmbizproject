@@ -14,12 +14,13 @@ import sam5 from "../img/sam5.png";
 import sam6 from "../img/sam6.png";
 import sam7 from "../img/sam7.png";
 
+
 export const samples = [
-  { id: 1, name: "sample1", img: img1 , sam: sam1},
-  { id: 2, name: "sample2", img: img2 , sam: sam2},
-  { id: 3, name: "sample3", img: img3 , sam: sam3},
-  { id: 4, name: "sample4", img: img4 , sam: sam4},
-  { id: 5, name: "sample5", img: img5 , sam: sam5},
-  { id: 6, name: "sample6", img: img6 , sam: sam6},
-  { id: 7, name: "sample7", img: img7 , sam: sam7},
+  { id: 1, name: "sample1", img: img1 , sam: sam1 , color: [100,200,300]},
+  { id: 2, name: "sample2", img: img2 , sam: sam2 , color: [100,200,300]},
+  { id: 3, name: "sample3", img: img3 , sam: sam3 , color: [100,200]},
+  { id: 4, name: "sample4", img: img4 , sam: sam4 , color: [100,200,500,700]},
+  { id: 5, name: "sample5", img: img5 , sam: sam5 , color: [100,200,700]},
+  { id: 6, name: "sample6", img: img6 , sam: sam6 , color: [100,200,700]},
+  { id: 7, name: "sample7", img: img7 , sam: sam7 , color: [100,200,400,500,600,700,800,900,110]},
 ];

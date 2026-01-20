@@ -1,0 +1,92 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ 
+.modal {
+  width:70vw;
+  max-width: 430px;
+  background: white;
+  border-radius: 15px;
+}
+
+.modal-inner{
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.input-section{
+    width: 100%;
+    height: auto;
+    padding: 6px 0 24px 0;
+}
+
+.input{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+}
+
+.input input{
+    width: 60%;
+    height: 30px;
+}
+
+.btn-section{
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.btn1{
+    width: 20%;
+    height: 30px;
+    border-radius: 15px;
+    border:2px solid black;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+.btn1:hover {
+  background-color: var(--gray5);
+}
+.btn1:active {
+  border:2px solid black;
+  background-color: black;
+  color:white;
+}
+
+.btn2{
+    width: 20%;
+    height: 30px;
+    border-radius: 15px;
+    border:2px solid black;
+    background-color: black;
+    font-size: 14px;
+    color:white;
+    cursor: pointer;
+}
+.btn2:hover {
+  background-color: var(--gray1);
+}
+
+.btn2:active {
+  border:2px solid black;
+  background-color: white;
+  color:black;
+}
