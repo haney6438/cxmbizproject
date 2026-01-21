@@ -1,13 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
-
+import html2canvas from 'html2canvas';
+import { toast } from 'react-toastify';
 import '../css/PageDesign.css';
+
 import BackBar from '../components/BackBar';
 import Modal from '../components/ColorPickerModal';
-import download from '../img/download.png';
 import { samples } from '../components/ImgSample';
 import { colors } from '../components/SetColorBtn';
 
+import download from '../img/download.png';
 import { RiCheckboxBlankFill } from 'react-icons/ri';
 import { CgTrash } from 'react-icons/cg';
 
@@ -22,7 +24,7 @@ export default function Design() {
   const COLS = 18;
   const ROWS = 14;
 
-  const [board, setBoard] = useState(Array(ROWS * COLS).fill('white'));
+  const [board, setBoard] = useState(Array(COLS * ROWS).fill('#ffffff'));
 
   const [selectedColor, setSelectedColor] = useState('white');
 
@@ -32,9 +34,55 @@ export default function Design() {
     setBoard(newBoard);
   };
 
-  const handleDownload = () => {};
+  const handleDownload = () => {
+    const target = document.getElementById('download');
+    if (!target) {
+      return alert('사진 저장에 실패했습니다.');
+    }
+    html2canvas(target).then((canvas) => {
+      const link = document.createElement('a');
+      document.body.appendChild(link);
+      link.href = canvas.toDataURL('image/png');
+      link.download = 'Design_doan.png'; // 다운로드 이미지 파일 이름
+      link.click();
+      document.body.removeChild(link);
+    });
+    
+    toast.success('이미지가 저장되었습니다');
+  };
+  const [fileName, setFileName] = useState('<-픽셀화 시키기 버튼');
 
-  const handlePixel = () => {};
+  const handlePixel = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setFileName(file.name); 
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = COLS;
+      canvas.height = ROWS;
+
+      const ctx = canvas.getContext('2d');
+
+      // 이미지를 14x18로 강제 축소
+      ctx.drawImage(img, 0, 0, COLS, ROWS);
+
+      const imageData = ctx.getImageData(0, 0, COLS, ROWS).data;
+      const newBoard = [];
+
+      for (let i = 0; i < imageData.length; i += 4) {
+        const r = imageData[i];
+        const g = imageData[i + 1];
+        const b = imageData[i + 2];
+
+        newBoard.push(`rgb(${r}, ${g}, ${b})`);
+      }
+
+      setBoard(newBoard);
+    };
+  };
 
   const [colorList, setColorList] = useState(color);
 
@@ -57,20 +105,22 @@ export default function Design() {
 
   const handleResetColor = () => {
     setBoard(Array(ROWS * COLS).fill('white'));
+    setFileName('<-픽셀화 시키기 버튼')
+    toast.success('초기화되었습니다');    
   };
 
   return (
     <>
       <div className="container">
         <BackBar />
-        <Link to="/">home</Link>
+        <Link to="/" className='gomain-section'>home🏠</Link>
         <button
           onClick={handleDownload}
-          className="downloadbtn"
+          className="download-doan-btn"
           style={{ backgroundImage: `url(${download})` }}
         />
         <div className="grid-section">
-          <div className="grid">
+          <div id="download" className="grid">
             {board.map((color, index) => (
               <div
                 key={index}
@@ -89,8 +139,21 @@ export default function Design() {
         </div>
         <div className="content">
           <div className="img-section">
-            <button onClick={() => handlePixel()}>이미지 파일 선택</button>
-            <p>파일이름.jpg</p>
+            <input
+              type="file"
+              accept="image/*"
+              id="imageInput"
+              value=""
+              style={{ display: 'none' }}
+              onChange={handlePixel}
+            />
+
+            <button
+              onClick={() => document.getElementById('imageInput').click()}
+            >
+              이미지 선택
+            </button>
+            <p>{fileName || '<-픽셀화 시키기 버튼'}</p>
           </div>
 
           <div className="color-section">
@@ -105,11 +168,6 @@ export default function Design() {
                   {c.name}
                 </div>
                 <div className="color-section-right">
-                  {/* <HiMiniPencilSquare
-                    size={18}
-                    color="black"
-                    onClick={handleRenameColor}
-                  /> */}
                   <CgTrash
                     size={18}
                     color="black"

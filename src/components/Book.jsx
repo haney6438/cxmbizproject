@@ -1,43 +1,44 @@
-import { forwardRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../css/Book.css';
-import { samples } from '../components/ImgSample';
+import { pages } from '../components/ImgPage';
 
-const Book = forwardRef((props,ref) => {
-  const sample = samples.find((s) => s.id === 1);
-
-  if (!sample) {
-    return <div>잘못된 접근입니다.</div>;
-  }
-
+const Book = (props) => {
   return (
-  <div className="book-wrapper">
-    <HTMLFlipBook
-      width={260}
-      height={360}
-      minWidth={260}
-      maxWidth={300}
-      minHeight={360}
-      maxHeight={400}
-      showCover={true}
-      mobileScrollSupport={false}
-      ref={ref}
-      className="book"
-    >
-      <div className="page cover">표지</div>
-      <div className="page">
-        <img
-          src={sample.img}
-          alt={sample.name}
-        />
-      </div>
-      <div className="page">페이지 1</div>
-      <div className="page">페이지 2</div>
-      <div className="page">페이지 3</div>
-      <div className="page cover">뒷표지</div>
-    </HTMLFlipBook>
+    <div className="book-wrapper">
+      <HTMLFlipBook
+        width={300}
+        height={420}
+        minWidth={260}
+        maxWidth={320}
+        minHeight={360}
+        maxHeight={480}
+        showCover={true}
+        mobileScrollSupport={false}
+        className="book"
+        {...props}
+      >
+        <div className="cover">표지</div>
+        <div className="page">
+          <h2>네모 비즈 키링 만드는 방법</h2>
+          <ol>
+            <li>도안과 그에 맞는 비즈를 준비한다.</li>
+            <li>사이즈에 맞는 도안을 키링의 밑에 깐다.</li>
+            <li>탑코트나 레진을 키링에 바른다.</li>
+            <li>비즈를 얹는다.</li>
+            <li>맘에 들면 uv램프로 굽는다.</li>
+            <li>끝</li>
+          </ol>
+          <p>다음장 ➸</p>
+        </div>
+        {pages.map((page) => (
+            <div className="img-page" key={page.id}>
+              <img src={page.img} alt={page.name} />
+            </div>
+        ))}
+        <div className="cover">End</div>
+      </HTMLFlipBook>
     </div>
   );
-});
+};
 
 export default Book;

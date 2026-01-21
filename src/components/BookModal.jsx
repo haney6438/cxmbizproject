@@ -6,10 +6,10 @@ const BookModal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div onClick={onClose} className="modal-overlay">
-      <div onClick={(e) => e.stopPropagation()} className="modal">
-        <div className="modal-inner">
-          <HiXMark onClick={onClose} className="modal-close"></HiXMark>
+    <div onClick={onClose} className="b-modal-overlay">
+      <div onClick={(e) => e.stopPropagation()} className="b-modal">
+        <div className="b-modal-inner">
+          <HiXMark onClick={onClose} className="b-modal-close"></HiXMark>
           {children}
         </div>
       </div>

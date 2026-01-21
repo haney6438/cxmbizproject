@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-
 import '../css/PageMain.css';
-import { samples } from '../components/ImgSample';
+
 import BackBar from '../components/BackBar';
+import { samples } from '../components/ImgSample';
 
 function Main() {
   const navigate = useNavigate(); // 배경화면 개별지정

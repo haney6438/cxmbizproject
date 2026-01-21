@@ -31,3 +31,16 @@ body {
 body.main {
   background-image: url(../src/img/background1.png);
 }
+
+.Toastify__toast {
+  border-radius: 12px;
+  font-size: 14px;
+}
+.Toastify__toast--success {
+  background: white;
+  color: black;
+}
+
+.Toastify__progress-bar {
+  background: black;
+}

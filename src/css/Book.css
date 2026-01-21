@@ -8,31 +8,57 @@
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
-
-  overflow-x: hidden;   /* ⭐⭐⭐ 가로 스크롤 원인 차단 */
   position: relative;
 }
-
-
-.page {
-  background: white;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  border: 1px solid #ddd;
-}
-.page img{  /*300*400 기준*/
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
 
 .cover {
   background: #222;
   color: white;
   font-weight: bold;
+}
+
+.page {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border: 1px solid var(--gray5);
+  padding: 20px;
+
+  margin: 0;
+  background-image: url(../img/book-page1.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+.page h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.page ol {
+  padding-left: 18px;
+  margin: 0;
+}
+.page li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.img-page {
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray5);
+}
+.img-page img{  /*300*420 기준*/
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  display: block;
 }

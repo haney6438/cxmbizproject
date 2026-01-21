@@ -16,10 +16,10 @@ const ColorPickerModal = ({ isOpen, onClose, onConfirm }) => {
   };
 
   return (
-    <div onClick={onClose} className="modal-overlay">
-      <div onClick={(e) => e.stopPropagation()} className="modal">
-        <div className="modal-inner">
-          <h1>원하는 색을 추가하세요</h1>
+    <div onClick={onClose} className="c-modal-overlay">
+      <div onClick={(e) => e.stopPropagation()} className="c-modal">
+        <div className="c-modal-inner">
+          <h2>원하는 색을 추가하세요</h2>
 
           <div className="input-section">
             <div className="input">

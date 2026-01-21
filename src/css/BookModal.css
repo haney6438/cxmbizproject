@@ -1,4 +1,4 @@
-.modal-overlay {
+.b-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
 }
 
  
-.modal {
+.b-modal {
   width:100vw;
   max-width: 430px;
   display: flex;
@@ -23,12 +23,12 @@
   box-sizing: border-box;
 }
 
-.modal-inner{
+.b-modal-inner{
   padding: 20px;
   box-sizing: border-box;
 }
  
-.modal-close {
+.b-modal-close {
   position: absolute;
   width: 20px;
   height: 20px;

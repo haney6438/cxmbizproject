@@ -1,14 +1,16 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
-
+import { toast } from 'react-toastify';
 import YouTube from 'react-youtube';
-import { AiFillStar } from 'react-icons/ai';
-
 import '../css/PageSample.css';
-import { samples } from '../components/ImgSample';
+
 import BackBar from '../components/BackBar';
 import Modal from '../components/BookModal';
 import Book from '../components/Book';
+import { samples } from '../components/ImgSample';
+import jeans from '../img/btn-jeans.png';
+
+import { AiFillStar } from 'react-icons/ai';
 
 export default function Sample() {
   const [open, setOpen] = useState(false);
@@ -25,14 +27,19 @@ export default function Sample() {
   }
 
   const download = () => {
-    aRef.current && aRef.current.click();
+    if (!aRef.current) return;
+
+    aRef.current.click();
+    toast.success('이미지가 저장되었습니다');
   };
 
   return (
     <>
       <div className="container">
         <BackBar />
-        <Link to="/">home</Link>
+        <Link to="/" className="gomain-section">
+          home🏠
+        </Link>
         <div className="content">
           <img
             src={sample.sam}
@@ -45,7 +52,13 @@ export default function Sample() {
             }}
           />
           <div className="btnsection">
-            <button onClick={download}>도안 다운받기</button>
+            <button
+              onClick={download}
+              className="download-img-btn"
+              style={{ background: `url(${jeans})` }}
+            >
+              저장하기
+            </button>
             <a
               ref={aRef}
               href={sample.sam}
@@ -54,8 +67,13 @@ export default function Sample() {
             >
               download
             </a>
-             
-            <button onClick={() => navigate(`/design/${sample.id}`)}>직접 그리기</button>
+
+            <button
+              onClick={() => navigate(`/design/${sample.id}`)}
+              className="design-btn"
+            >
+              직접 만들기
+            </button>
           </div>
 
           <div className="starsection">
@@ -123,6 +141,17 @@ export default function Sample() {
                 e.target.stopVideo(0);
               }}
             />
+          </div>
+
+          <div style={{ padding: 30 }}></div>
+
+          <div className='fillsection'>
+            <div className='text'>
+            <h2>안녕하세요</h2>
+            <p>본 사이트는 네모 비즈 키링 만들기를 돕기 위해 제작되었습니다. <br/>
+            이미지 다운받고 화질이 많이 떨어지면 걍 캡쳐하는거 추천드립니다.. 죄삼다;</p>
+            <p>문의사항이 있다면 X.com&#40;구 트위터&#41; @zz0ngnist 계정으로 연락주십시오.</p>
+          </div>
           </div>
         </div>
       </div>
