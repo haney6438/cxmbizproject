@@ -17,7 +17,7 @@ const Book = (props) => {
         className="book"
         {...props}
       >
-        <div className="cover">표지</div>
+        <div className="cover"><p>HOW TO MAKE</p></div>
         <div className="page">
           <h2>네모 비즈 키링 만드는 방법</h2>
           <ol>
@@ -35,7 +35,7 @@ const Book = (props) => {
               <img src={page.img} alt={page.name} />
             </div>
         ))}
-        <div className="cover">End</div>
+        <div className="cover"> </div>
       </HTMLFlipBook>
     </div>
   );

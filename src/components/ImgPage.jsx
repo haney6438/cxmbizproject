@@ -1,10 +1,11 @@
-import pimg1 from "../img/sample1.png";
-import pimg2 from "../img/sample2.png";
-import pimg3 from "../img/sample3.png";
-import pimg4 from "../img/sample4.png";
-import pimg5 from "../img/sample5.png";
-import pimg6 from "../img/sample6.png";
-import pimg7 from "../img/sample7.png";
+import pimg1 from "../img/page1.png";
+import pimg2 from "../img/page2.png";
+import pimg3 from "../img/page3.png";
+import pimg4 from "../img/page4.png";
+import pimg5 from "../img/page5.png";
+import pimg6 from "../img/page6.png";
+import pimg7 from "../img/page7.png";
+import pimg8 from "../img/page8.png";
 
 
 export const pages = [
@@ -15,4 +16,5 @@ export const pages = [
   { id: 5, name: "page5", img: pimg5 },
   { id: 6, name: "page6", img: pimg6 },
   { id: 7, name: "page7", img: pimg7 },
+  { id: 8, name: "page7", img: pimg8 },
 ];
