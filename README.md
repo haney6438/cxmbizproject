@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+CXM 비즈 프로젝트
+## 🧑‍💻 프로젝트 개요
+>CXM 콘서트 기념 이벤트 
+>CXM 콘서트장에서 비즈 키링 만들기 세트(비즈,십자수도구,키링부자재,도안제작사이트)를 배포한 프로젝트입니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 프로젝트명: CXM 비즈 프로젝트
+- 프로젝트 기간: 2026.01.01 ~ 2026.01.24
+- 주요 사용자: CXM 팬
+<br>
 
-## Available Scripts
+## ⚙️ 기술 스택
+- **프론트엔드**: React, Javacript, CSS
+- **빌드 도구**: Vite
+- **아이콘**: React Icons
+- **Youtube UI**: 
+- **기타**: GitHub, VSCode, Figma
+<br>
 
-In the project directory, you can run:
+## 🚀 실행 방법
+```
+https://cxmbiz.web.app/ 접
+```
+```bash
+npm install
+npm run dev
+```
+브라우저에서 http://localhost:5173 접속
+<br>
+<br>
 
-### `npm start`
+## 🌐 Mock 데이터 / 서버 구성
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 실제 서버 대신 `mock` 폴더의 데이터를 사용해 강의 목록 및 신청 데이터를 관리했습니다.
+- 실제 API 호출 대신 `mock` 데이터를 반환하므로 별도 서버 실행 없이 npm run dev 만으로 동작합니다.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 폴더 구조
 
-### `npm test`
+```txt
+src/
+ ┣ api/        # Mock API 함수 (강의 조회, 수강 신청)
+ ┣ mock/       # Mock 데이터 (강의 목록, 신청 내역)
+ ┣ pages/      # 페이지 컴포넌트 (Step1~3, Complete, Home)
+ ┣ components/ # 공통 컴포넌트 (Header, Indicator, Terms)
+ ┣ type/       # TypeScript 타입 정의 (Course, Enrollment, Error)
+```
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💭 요구사항 해석 및 가정
+- 정원이 거의 찬 강의는 현재 신청 인원이 정원의 80% 이상일 때로 가정하여 마감 임박 배지로 표시됩니다.
+- 단체 신청은 대표 신청자가 참가자 정보를 함께 입력하는 방식으로 가정했습니다.
+- 이메일 및 전화번호는 일반적인 국내 서비스 형식을 기준으로 정규식을 작성했습니다.
+<br>
 
-### `npm run build`
+## 💡 설계 결정과 이유
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **폼 상태 관리**: 별도 폼 라이브러리 없이 `useState`를 사용해 직접 상태를 관리했습니다. 초기에는 `Context` 기반 구조도 고려했지만, 프로젝트 기간과 현재 숙련도를 고려해 우선 단순한 구조로 구현했습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **유효성 검증**: `blur` 이벤트 시 개별 필드 검증을 수행하고, 다음 단계 버튼 클릭 시 전체 검증을 진행하도록 구현했습니다. 클라이언트 검증 통과 이후 서버 측 검증을 추가로 처리했으나, `EnrollmentResponse`에 `courseId`를 저장하지 않아 신청 내역과 강의를 매핑할 수 없어 `DUPLICATE_ENROLLMENT` 처리는 구현하지못했습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **조건부 필드 처리**: 신청 유형(personal / group)에 따라 단체 신청 영역을 조건부로 노출하도록 구현했습니다. 단체 신청이 아닌 경우에는 단체 필드를 UI를 숨기고 검증 대상에서도 제외했습니다. 자연스러운 레이아웃 유지를 위해 단체 신청 인원 수에 따라 참가자 입력 필드가 동적으로 추가,삭제되는 페이지인 step2에서는 visibility를 활용하여 숨기고, 요약본을 보여주는 step3에서는 display: none방식을 활용했습니다.
+  
+* **카테고리 필터링**: 전체 강의 목록은 state로 유지하고, 화면 렌더링 시 `filter`를 통해 카테고리별로 표시했습니다. 강의 수가 적은 규모에서는 매 카테고리마다 API를 호출하는 것보다 한 번에 불러오는 것이 더 효율적이라 판단해 결정했습니다.
+<br>
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⚠️ 미구현 / 제약사항
+- **미구현**
+  	- 제출 실패 시 결과화면
+	- 임시 저장 (새로고침 후 복구/단체 데이터)
+	- 이탈 방지
+	- 반응형 레이아웃
+	- 이메일 중복 처리
+	- 로딩 상태 처리, 중복 방지 처리
+- **제약사항**
+<br>
+  
