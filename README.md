@@ -24,7 +24,7 @@ CXM 비즈 프로젝트
 - **프론트엔드**: React, Javacript, CSS
 - **빌드 도구**: Vite
 - **라이브러리**: React Router DOM, React Toastify, React Icons, Raact Youtube
-- **기타**: GitHub, VSCode, Figma
+- **기타**: GitHub, VSCode, Figma, Firebase
 
 <br>
 
